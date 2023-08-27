@@ -4,6 +4,7 @@ from uuid import UUID
 
 from async_sqlalchemy.modules.blog.domain import Comment, Post, User
 from async_sqlalchemy.modules.shared import exceptions
+from async_sqlalchemy.modules.shared.logger import logger
 
 
 @dataclass
@@ -17,6 +18,7 @@ class NewCommentResponse:
 
 async def create_new_comment(async_db_session: AsyncContextManager, comment: Any):
     async with async_db_session as session:
+        logger.info(f"Creating new comment: {comment}")
         related_user = await session.get(User, comment.user_id)
         related_post = await session.get(Post, comment.post_id)
         if not related_user or not related_post:

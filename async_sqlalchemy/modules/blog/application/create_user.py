@@ -1,8 +1,10 @@
+from dataclasses import dataclass
 from typing import Any, AsyncContextManager
+from uuid import UUID
 
 from async_sqlalchemy.modules.blog.domain import User
-from dataclasses import dataclass
-from uuid import UUID
+from async_sqlalchemy.modules.shared.logger import logger
+
 
 @dataclass
 class NewUserResponse:
@@ -13,8 +15,10 @@ class NewUserResponse:
     phone: str
     address: str
 
+
 async def create_new_user(async_db_session: AsyncContextManager, user: Any):
     async with async_db_session as session:
+        logger.info(f"Creating new user: {user}")
         user = User(
             name=user.name,
             email=user.email,
