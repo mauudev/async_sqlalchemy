@@ -9,7 +9,7 @@ from async_sqlalchemy.modules.blog.domain import user
 # access to the values within the .ini file in use.
 config = context.config
 
-DATABASE_URL = f"postgresql://admin:admin@localhost:7001/async_database"
+DATABASE_URL = "postgresql://admin:admin@localhost:7001/async_database"
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 # Interpret the config file for Python logging.
