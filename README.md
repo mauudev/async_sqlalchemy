@@ -1,6 +1,6 @@
 # SQLAlchemy AsyncSession + FastAPI
-A blog application that creates users, posts and comments using the `SQLAlchemy`'s asyncio extension for creating sessions.
-Rest API exposed with `FastAPI` and `Locust` library used for stress testing.
+A blog application exposed with `FastAPI` that creates users, posts and comments using the `SQLAlchemy`'s asyncio extension for creating sessions.
+
 
 ## Install dependencies
 Execute:
